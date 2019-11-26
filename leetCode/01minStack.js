@@ -22,36 +22,45 @@
  * initialize your data structure here.
  */
 var MinStack = function () {
-
+    this.index = 0;
+    this.storage = {};
 };
 
 /** 
  * @param {number} x
  * @return {void}
  */
-MinStack.prototype.push = function (x) {
-
+MinStack.prototype.push = function (value) {
+    this.storage[this.index] = value;
+    this.inex += 1;
 };
 
 /**
  * @return {void}
  */
 MinStack.prototype.pop = function () {
-
+    delete this.storage[this.index];
+    this.index -= 1;
 };
 
 /**
  * @return {number}
  */
 MinStack.prototype.top = function () {
-
+    return this.storage[this.index];
 };
 
 /**
  * @return {number}
  */
 MinStack.prototype.getMin = function () {
-
+    let min = Infinity;
+    for (let key in this.storage) {
+        if (this.storage[key] < min) {
+            min = this.storage[key];
+        }
+    }
+    return min;
 };
 
 /**
